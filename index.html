@@ -14,10 +14,33 @@
             background: linear-gradient(to bottom, #f9f9f9, #f1f1f1);
             color: #333;
             overflow-x: hidden;
-            
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 0, 0.5) 2px, transparent 2px),
+                        radial-gradient(circle, rgba(0, 255, 255, 0.5) 2px, transparent 2px),
+                        radial-gradient(circle, rgba(255, 0, 255, 0.5) 2px, transparent 2px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px, 40px 40px;
+            animation: starsMove 20s linear infinite;
+            z-index: -1;
         }
 
-        /* Sidebar Navigation */
+        @keyframes starsMove {
+            0% {
+                background-position: 0 0, 20px 20px, 40px 40px;
+            }
+            100% {
+                background-position: 400px 400px, 420px 420px, 440px 440px;
+            }
+        }
+
+
         nav {
             position: fixed;
             left: 0;
@@ -64,7 +87,6 @@
             border-radius: 5px;
         }
 
-        /* Main Content */
         main {
             margin-left: 240px;
             padding: 40px 20px;
@@ -90,35 +112,9 @@
             margin: 10px 0;
         }
 
-        /* Flying Stars Animation */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255, 255, 0, 0.5) 2px, transparent 2px),
-                        radial-gradient(circle, rgba(0, 255, 255, 0.5) 2px, transparent 2px),
-                        radial-gradient(circle, rgba(255, 0, 255, 0.5) 2px, transparent 2px);
-            background-size: 40px 40px;
-            background-position: 0 0, 20px 20px, 40px 40px;
-            animation: starsMove 20s linear infinite;
-            z-index: -1;
-        }
-
-        @keyframes starsMove {
-            0% {
-                background-position: 0 0, 20px 20px, 40px 40px;
-            }
-            100% {
-                background-position: 400px 400px, 420px 420px, 440px 440px;
-            }
-        }
-
-        /* Section Design */
         .section {
-            margin-bottom: 40px;
+            margin-TOP: -40px;
+            margin-bottom: 90px;
             padding: 15px;
             background: #fff;
             border-radius: 10px;
@@ -133,7 +129,6 @@
             display: inline-block;
         }
 
-        /* Skills Section */
         .skills {
             display: flex;
             flex-direction: column;
@@ -169,6 +164,7 @@
             background: #ff5722;
             border-radius: 5px;
         }
+
         .projects {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -195,25 +191,6 @@
             border-radius: 5px;
         }
 
-        .project-card h3 {
-            margin-top: 10px;
-            font-size: 1.5em;
-        }
-
-        .project-card p {
-            margin: 10px 0;
-        }
-
-        .project-card a {
-            color: #2575fc;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .project-card a:hover {
-            text-decoration: underline;
-        }
-        /* Experience Section */
         .timeline {
             position: relative;
             padding-left: 40px;
@@ -238,10 +215,6 @@
             position: relative;
         }
 
-        .timeline-item h3 {
-            margin-top: 0;
-        }
-
         footer {
             text-align: center;
             padding: 20px;
@@ -259,131 +232,76 @@
             text-decoration: underline;
         }
 
-        /* Contact Section */
-        .contact {
-            margin-top: 20px;
+        @media (max-width: 768px) {
+            nav {
+                position: static;
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 10px 0;
+            }
+
+            nav img {
+                width: 80px;
+                height: 80px;
+            }
+
+            nav h2 {
+                font-size: 1rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+                padding: 6px 8px;
+                text-align: center;
+            }
+
+            main {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .contact p {
-            font-size: 1rem;
-            margin: 5px 0;
+        @media (max-width: 480px) {
+            nav img {
+                width: 60px;
+                height: 60px;
+            }
+
+            nav h2 {
+                font-size: 0.9rem;
+            }
+
+            nav a {
+                font-size: 0.8rem;
+                padding: 5px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header p {
+                font-size: 0.9rem;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
         }
-        /* Responsive Styles for Tablets and Phones */
-@media (max-width: 768px) {
-    nav {
-        position: relative;
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 10px 0;
-    }
-
-    nav img {
-        width: 80px;
-        height: 80px;
-    }
-
-    nav h2 {
-        font-size: 1rem;
-    }
-
-    nav a {
-        font-size: 0.9rem;
-        padding: 6px 8px;
-        text-align: center;
-    }
-
-    main {
-        margin-left: 0;
-        padding: 20px;
-    }
-
-    header {
-        text-align: center;
-        padding: 40px 15px;
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
-
-    header p {
-        font-size: 1rem;
-    }
-
-    .section h2 {
-        font-size: 1.5rem;
-    }
-
-    .skills .skill-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    .progress {
-        width: 100%;
-    }
-
-    .projects {
-        grid-template-columns: 1fr;
-    }
-
-    .timeline {
-        padding-left: 20px;
-    }
-
-    .timeline::before {
-        left: 10px;
-    }
-
-    .timeline-item {
-        padding: 15px;
-        margin-left: 10px;
-    }
-
-    footer {
-        padding: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    nav img {
-        width: 60px;
-        height: 60px;
-    }
-
-    nav h2 {
-        font-size: 0.9rem;
-    }
-
-    nav a {
-        font-size: 0.8rem;
-        padding: 5px 5px;
-    }
-
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    header p {
-        font-size: 0.9rem;
-    }
-
-    .section h2 {
-        font-size: 1.2rem;
-    }
-
-    .projects {
-        grid-template-columns: 1fr;
-    }
-
-    footer p {
-        font-size: 0.8rem;
-    }
-}
-
     </style>
 </head>
 <body>
@@ -397,7 +315,6 @@
         <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
     </nav>
-
     <header>
         <h1>Sarath Kumar Kathiravan</h1>
         <p>AI & ML/Cloud Engineer | Building Intelligent Solutions</p>
