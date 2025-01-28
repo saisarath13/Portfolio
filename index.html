@@ -268,6 +268,122 @@
             font-size: 1rem;
             margin: 5px 0;
         }
+        /* Responsive Styles for Tablets and Phones */
+@media (max-width: 768px) {
+    nav {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px 0;
+    }
+
+    nav img {
+        width: 80px;
+        height: 80px;
+    }
+
+    nav h2 {
+        font-size: 1rem;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+        padding: 6px 8px;
+        text-align: center;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    header {
+        text-align: center;
+        padding: 40px 15px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .section h2 {
+        font-size: 1.5rem;
+    }
+
+    .skills .skill-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .progress {
+        width: 100%;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline {
+        padding-left: 20px;
+    }
+
+    .timeline::before {
+        left: 10px;
+    }
+
+    .timeline-item {
+        padding: 15px;
+        margin-left: 10px;
+    }
+
+    footer {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav img {
+        width: 60px;
+        height: 60px;
+    }
+
+    nav h2 {
+        font-size: 0.9rem;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+        padding: 5px 5px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    .section h2 {
+        font-size: 1.2rem;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+}
+
     </style>
 </head>
 <body>
